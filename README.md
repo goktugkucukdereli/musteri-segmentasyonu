@@ -2,7 +2,7 @@
 
 ## 🎯 Proje Amacı
 
-Bu proje, müşteri verilerini analiz ederek K-Means kümeleme algoritması ile segmentlere ayırmayı amaçlamaktadır. Segmentasyon, her segmentin davranışlarını daha iyi anlamayı, müşteri ihtiyaçlarını analiz etmeyi ve pazarlama stratejilerini optimize etmeyi sağlar. Python, PostgreSQL ve Tableau gibi araçlar kullanılarak veri analizi, aykırı değer incelemesi ve görselleştirme gerçekleştirilmiştir.
+Bu projeyi, müşteri verilerini analiz ederek K-Means kümeleme algoritması ile segmentlere ayırmak için geliştirdim. Segmentasyon sayesinde, her segmentin davranışlarını daha iyi anlayarak müşteri ihtiyaçlarını analiz etmeyi ve pazarlama stratejilerini optimize etmeyi hedefledim. Python, PostgreSQL ve Tableau gibi araçlar kullanarak veri analizi, aykırı değer incelemesi ve görselleştirme çalışmaları gerçekleştirdim.
 
 ## 📌 Proje Hedefleri
 
@@ -16,26 +16,26 @@ Bu proje, müşteri verilerini analiz ederek K-Means kümeleme algoritması ile 
    - **Küme 0:** Ortalama özelliği düşük müşteriler.
    - **Küme 1:** Orta seviye müşteriler.
    - **Küme 2:** Yüksek özelliklere sahip müşteriler.
-2. Küme bazında analizlerle segmentlerin davranışları görselleştirildi.
-3. Aykırı değerler başarıyla tespit edildi.
+2. Küme bazında analizlerle segmentlerin davranışlarını görselleştirdim.
+3. Aykırı değerleri başarıyla tespit ederek analizlerde dikkate aldım.
 
 ---
 
 ## 📋 Projenin İçeriği
 
 1. **Veri Üretimi ve İşleme**
-    - Sahte veri oluşturmak için Python'da `make_blobs` kullanıldı.
-    - PostgreSQL veritabanında veriler depolandı.
+    - Sahte veriyi Python'da `make_blobs` kullanarak ürettim.
+    - PostgreSQL veritabanında verileri depoladım.
 
 2. **Kümeleme Analizi**
-    - K-Means algoritması ile veriler 3 kümeye ayrıldı.
-    - Küme bazında özet istatistikler hesaplandı.
+    - K-Means algoritmasını kullanarak verileri 3 kümeye ayırdım.
+    - Küme bazında özet istatistikler hesapladım.
 
 3. **Aykırı Değer Analizi**
-    - Python ile `Box Plot` kullanılarak aykırı değerler analiz edildi.
+    - Python ile `Box Plot` kullanarak aykırı değerleri analiz ettim.
 
 4. **Görselleştirme**
-    - Tableau kullanılarak küme boyutları ve dağılımı görselleştirildi.
+    - Tableau kullanarak küme boyutlarını ve dağılımını görselleştirdim.
 
 ---
 
@@ -62,12 +62,12 @@ Bu proje, müşteri verilerini analiz ederek K-Means kümeleme algoritması ile 
 - Tableau Desktop veya Tableau Public
 
 ### Kurulum
-1. Gerekli Python paketlerini yükleyin:
+1. Gerekli Python paketlerini yükledim ve kullanıcıların da yüklemesi için:
     ```bash
     pip install -r requirements.txt
     ```
 
-2. PostgreSQL veritabanını başlatın ve `data/setup.sql` veya `src/db_initializer.py` dosyasını çalıştırın.
+2. PostgreSQL veritabanını başlatmak için `data/setup.sql` veya `src/db_initializer.py` dosyasını çalıştırabilirsiniz.
 
 3. Veri oluşturmak ve PostgreSQL'e yüklemek için:
     ```bash
@@ -75,36 +75,36 @@ Bu proje, müşteri verilerini analiz ederek K-Means kümeleme algoritması ile 
     ```
 
 4. Tableau ile görselleştirme için:
-    - `cluster_analysis_report.csv` ve `cluster_sizes.csv` dosyalarını Tableau'ya yükleyin.
-    - Görselleştirmeleri oluşturun.
+    - `cluster_analysis_report.csv` ve `cluster_sizes.csv` dosyalarını Tableau'ya yükledim.
+    - Görselleştirmeleri oluşturdum ve siz de kolayca oluşturabilirsiniz.
 
 ---
 
 ## 📊 Görselleştirmeler ve Önemli Analizler
 
 ### 1. Küme Dağılımı
-`ozellik1` ve `ozellik2` değerlerinin küme bazlı dağılımını scatter plot ile görselleştirdim. Bu analiz, kümeler arasındaki genel ayrışmayı ve ilişkileri incelemek için kullanılır.
+`ozellik1` ve `ozellik2` değerlerinin küme bazlı dağılımını scatter plot ile görselleştirdim. Bu analiz, kümeler arasındaki genel ayrışmayı ve ilişkileri anlamama yardımcı oldu.
 
 ![Kümelere Göre Müşteri Dağılımı](assets/scatter_plot_customers.png)
 
 ---
 
 ### 2. Küme Boyutları
-Her kümenin müşteri sayısını bar chart ile görselleştirdim. Bu analiz, kümeler arasındaki büyüklük farklılıklarını anlamak için önemlidir.
+Her kümenin müşteri sayısını bar chart ile görselleştirdim. Bu analiz, kümeler arasındaki büyüklük farklılıklarını anlamamı sağladı.
 
 ![Küme Sonuçları](assets/bar_chart_results.png)
 
 ---
 
 ### 3. Kümelere Göre Ortalama Özellikler
-Her kümenin ortalama `ozellik1` ve `ozellik2` değerlerini bar chart ile görselleştirdim. Bu analiz, her kümenin özellik değerleri arasındaki farkları ortaya koyar.
+Her kümenin ortalama ozellik1 ve ozellik2 değerlerini bar chart ile görselleştirdim. Bu analiz, her kümenin özellik değerleri arasındaki farkları ortaya koydu.
 
 ![Kümelere Göre Ortalama Özellikler](assets/bar_chart_averages.png)
 
 ---
 
 ### 4. Aykırı Değer Analizi
-Box Plot kullanarak aykırı değerleri inceledim. Bu analiz, `ozellik1` ve `ozellik2` değerlerindeki uç noktaları görselleştirmek için yapılmıştır.
+Box Plot kullanarak aykırı değerleri inceledim. Bu analiz, `ozellik1` ve `ozellik2` değerlerindeki uç noktaları görselleştirmeme yardımcı oldu.
 
 #### Özellik 1 için Aykırı Değerler
 ![Özellik 1 Histogramı](assets/histogram_ozellik1.png)
@@ -116,7 +116,7 @@ Box Plot kullanarak aykırı değerleri inceledim. Bu analiz, `ozellik1` ve `oze
 ---
 
 🧪 Test Edilebilirlik
-Projenin işlevlerini test etmek için test.py dosyasını çalıştırabilirsiniz. Bu dosya, veritabanını başlatır ve örnek bir veri seti oluşturarak tüm adımları doğrular.
+Projeyi test etmek için test.py dosyasını oluşturdum. Bu dosya, veritabanını başlatır ve örnek bir veri seti oluşturarak tüm adımları doğrular.
 
 Test Çalıştırma:
 ```bash
@@ -161,4 +161,4 @@ musteri_segmentasyonu/
 ---
 
 ## 📜 Lisans
-Bu proje MIT Lisansı ile lisanslanmıştır. Bu lisans, projeyi özgürce kullanma, değiştirme ve paylaşma hakkı tanır. Daha fazla bilgi için LICENSE dosyasına göz atabilirsiniz.
+Projeyi MIT Lisansı ile lisansladım. Bu lisans, projeyi özgürce kullanma, değiştirme ve paylaşma hakkı tanır. Daha fazla bilgi için LICENSE dosyasına göz atabilirsiniz.
