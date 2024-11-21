@@ -1,6 +1,21 @@
 # Müşteri Segmentasyonu Projesi
 
-Bu proje, müşteri verilerini kullanarak K-Means kümeleme algoritmasıyla segmentasyon yapmayı amaçlamaktadır. Python, PostgreSQL ve Tableau gibi araçlar kullanılarak veri analizi ve görselleştirme gerçekleştirilmiştir.
+## 🎯 Proje Amacı, Hedefleri ve Sonuçları
+
+Bu proje, müşteri verilerini analiz ederek K-Means kümeleme algoritması ile segmentlere ayırmayı amaçlamaktadır. Segmentasyon, her segmentin davranışlarını daha iyi anlamayı, müşteri ihtiyaçlarını analiz etmeyi ve pazarlama stratejilerini optimize etmeyi sağlar. Python, PostgreSQL ve Tableau gibi araçlar kullanılarak veri analizi, aykırı değer incelemesi ve görselleştirme gerçekleştirilmiştir.
+
+### Hedefler:
+- Müşteri verilerini segmentlere ayırarak her segmentin özelliklerini anlamak.
+- Pazarlama stratejilerinde kullanılabilecek içgörüler elde etmek.
+- Kümelerdeki aykırı değerleri analiz ederek verilerin kalitesini artırmak.
+
+### Sonuçlar:
+1. 3 küme belirlendi:
+   - **Küme 0:** Ortalama özelliği düşük müşteriler.
+   - **Küme 1:** Orta seviye müşteriler.
+   - **Küme 2:** Yüksek özelliklere sahip müşteriler.
+2. Küme bazında analizlerle segmentlerin davranışları görselleştirildi.
+3. Aykırı değerler başarıyla tespit edildi.
 
 ---
 
@@ -50,7 +65,7 @@ Bu proje, müşteri verilerini kullanarak K-Means kümeleme algoritmasıyla segm
     pip install -r requirements.txt
     ```
 
-2. PostgreSQL veritabanını başlatın ve `data/setup.sql` dosyasını çalıştırın.
+2. PostgreSQL veritabanını başlatın ve `data/setup.sql` veya `src/db_initializer.py` dosyasını çalıştırın.
 
 3. Veri oluşturmak ve PostgreSQL'e yüklemek için:
     ```bash
@@ -63,16 +78,48 @@ Bu proje, müşteri verilerini kullanarak K-Means kümeleme algoritmasıyla segm
 
 ---
 
-## 📊 Önemli Analizler
+## 📊 Görselleştirmeler ve Önemli Analizler
 
-1. **Küme Dağılımı**:
-    - `ozellik1` ve `ozellik2` değerlerinin küme bazlı dağılımını scatter plot ile görselleştirdik.
+### 1. Küme Dağılımı
+`ozellik1` ve `ozellik2` değerlerinin küme bazlı dağılımını scatter plot ile görselleştirdim. Bu analiz, kümeler arasındaki genel ayrışmayı ve ilişkileri incelemek için kullanılır.
 
-2. **Küme Boyutları**:
-    - Her kümenin müşteri sayısını bar chart ile görselleştirdik.
+![Kümelere Göre Müşteri Dağılımı](assets/scatter_plot_customers.png)
 
-3. **Aykırı Değer Analizi**:
-    - Box Plot kullanarak aykırı değerleri inceledik.
+---
+
+### 2. Küme Boyutları
+Her kümenin müşteri sayısını bar chart ile görselleştirdim. Bu analiz, kümeler arasındaki büyüklük farklılıklarını anlamak için önemlidir.
+
+![Küme Sonuçları](assets/bar_chart_results.png)
+
+---
+
+### 3. Kümelere Göre Ortalama Özellikler
+Her kümenin ortalama `ozellik1` ve `ozellik2` değerlerini bar chart ile görselleştirdim. Bu analiz, her kümenin özellik değerleri arasındaki farkları ortaya koyar.
+
+![Kümelere Göre Ortalama Özellikler](assets/bar_chart_averages.png)
+
+---
+
+### 4. Aykırı Değer Analizi
+Box Plot kullanarak aykırı değerleri inceledim. Bu analiz, `ozellik1` ve `ozellik2` değerlerindeki uç noktaları görselleştirmek için yapılmıştır.
+
+#### Özellik 1 için Aykırı Değerler
+![Özellik 1 Histogramı](assets/histogram_ozellik1.png)
+
+#### Özellik 2 için Aykırı Değerler
+![Özellik 2 Histogramı](assets/histogram_ozellik2.png)
+
+
+---
+
+🧪 Test Edilebilirlik
+Projenin işlevlerini test etmek için test.py dosyasını çalıştırabilirsiniz. Bu dosya, veritabanını başlatır ve örnek bir veri seti oluşturarak tüm adımları doğrular.
+
+Test Çalıştırma:
+```bash
+python3 test.py
+```
 
 ---
 
@@ -82,19 +129,28 @@ Bu proje, müşteri verilerini kullanarak K-Means kümeleme algoritmasıyla segm
 musteri_segmentasyonu/
 │
 ├── data/
-│   └── setup.sql          # Veritabanı tabloları için SQL komutları
+│   └── setup.sql              # Veritabanı tabloları için SQL komutları
 │
-├── src/
-│   ├── main.py            # Ana çalışma dosyası
-│   ├── cluster_analysis.py
-│   ├── csv_to_db.py
-│   ├── db_connection.py   # PostgreSQL bağlantısı
-│   ├── db_initializer.py  # Veritabanı başlatma
-│   ├── data_generator.py  # Veri üretme ve işleme
-│   ├── analysis.py        # Analiz ve modelleme
-│   └── visualization.py   # Görselleştirme
+├── src/                       # Projenin ana kodları
+│   ├── main.py                # Ana çalışma dosyası
+│   ├── cluster_analysis.py    # Küme analizi ve raporlama
+│   ├── csv_to_db.py           # CSV verisini veritabanına aktarma
+│   ├── db_connection.py       # PostgreSQL bağlantısı
+│   ├── db_initializer.py      # Veritabanı başlatma
+│   ├── data_generator.py      # Veri oluşturma ve veritabanına ekleme
+│   ├── analysis.py            # Kümeleme analizi
+│   ├── visualization.py       # Tableau görselleştirme
+│   ├── outlier_analysis.py    # Aykırı değer analizi
+│   ├── histogram_analysis.py  # Histogram analizi
+│   └── config.py              # Veritabanı yapılandırma ayarları
 │
-├── cluster_analysis_report.csv
-├── cluster_sizes.csv
-├── requirements.txt       # Gerekli Python paketleri
-└── README.md              # Proje açıklaması
+├── assets/                    # Görseller ve ekran görüntüleri
+│   ├── bar_chart_results.png
+│   ├── bar_chart_averages.png
+│   └── scatter_plot_customers.png
+│
+├── cluster_analysis_report.csv  # Özet istatistik raporu
+├── cluster_sizes.csv            # Küme boyutları raporu
+├── requirements.txt             # Gerekli Python paketleri
+├── README.md                    # Proje açıklaması
+└── test.py                      # Projeyi test etmek için test dosyası
