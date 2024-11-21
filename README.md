@@ -1,0 +1,1 @@
+# musteri-segmentasyonu
