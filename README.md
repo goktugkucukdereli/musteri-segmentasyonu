@@ -1,15 +1,17 @@
 # Müşteri Segmentasyonu Projesi
 
-## 🎯 Proje Amacı, Hedefleri ve Sonuçları
+## 🎯 Proje Amacı
 
 Bu proje, müşteri verilerini analiz ederek K-Means kümeleme algoritması ile segmentlere ayırmayı amaçlamaktadır. Segmentasyon, her segmentin davranışlarını daha iyi anlamayı, müşteri ihtiyaçlarını analiz etmeyi ve pazarlama stratejilerini optimize etmeyi sağlar. Python, PostgreSQL ve Tableau gibi araçlar kullanılarak veri analizi, aykırı değer incelemesi ve görselleştirme gerçekleştirilmiştir.
 
-### Hedefler:
+## 📌 Proje Hedefleri
+
 - Müşteri verilerini segmentlere ayırarak her segmentin özelliklerini anlamak.
 - Pazarlama stratejilerinde kullanılabilecek içgörüler elde etmek.
 - Kümelerdeki aykırı değerleri analiz ederek verilerin kalitesini artırmak.
 
-### Sonuçlar:
+## 📈 Proje Sonuçları
+
 1. 3 küme belirlendi:
    - **Küme 0:** Ortalama özelliği düşük müşteriler.
    - **Küme 1:** Orta seviye müşteriler.
@@ -154,3 +156,9 @@ musteri_segmentasyonu/
 ├── requirements.txt             # Gerekli Python paketleri
 ├── README.md                    # Proje açıklaması
 └── test.py                      # Projeyi test etmek için test dosyası
+```
+
+---
+
+## 📜 Lisans
+Bu proje MIT Lisansı ile lisanslanmıştır. Bu lisans, projeyi özgürce kullanma, değiştirme ve paylaşma hakkı tanır. Daha fazla bilgi için LICENSE dosyasına göz atabilirsiniz.
